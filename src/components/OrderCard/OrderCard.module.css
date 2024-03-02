@@ -1,0 +1,110 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item {
+  background: var(--bg-header);
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number {
+  margin: 0;
+  color: var(--text-color);
+}
+
+.date {
+  margin: 0;
+}
+
+.title {
+  color: var(--text-color);
+  margin: 0;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.priceWrapper {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.price {
+  color: var(--text-color);
+}
+
+.imageItemWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  width: fit-content;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.listItem {
+  display: block;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  width: 64px;
+  height: 64px;
+  margin-right: -20px;
+  position: relative;
+}
+
+.overlay {
+  opacity: .6;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+  width: 64px;
+  height: 64px;
+}
+
+.listItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, var(--gradient-color), var(--gradient-color-blue)) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.count {
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  transform: translateY(-50%);
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+.done {
+  color: var(--digits-color);
+}

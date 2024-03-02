@@ -1,0 +1,35 @@
+.header {
+  background-color: var(--bg-header);
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 132px;
+}
+
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 49px;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.active {
+  color: var(--text-color);
+}

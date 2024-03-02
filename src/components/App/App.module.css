@@ -1,0 +1,15 @@
+.page {
+  font-family: 'JetBrains Mono', sans-serif;
+  font-style: normal;
+  min-width: 320px;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  gap: 40px;
+}

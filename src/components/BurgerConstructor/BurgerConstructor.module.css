@@ -1,0 +1,65 @@
+.wrapper {
+  text-align: center;
+  width: 100%;
+}
+
+.element {
+  background-color: var(--bg-header);
+  cursor: pointer;
+}
+
+.list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 30vh;
+  overflow-x: hidden;
+}
+
+/* размер скроллбара */
+.list::-webkit-scrollbar {
+  height: 300px;
+  width: 8px;
+}
+
+/* полоса прокрутки полностью */
+.list::-webkit-scrollbar-track {
+  background-color: var(--bg-scroll);
+}
+
+/* ползунок */
+.list::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-color);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-right: 16px;
+}
+
+.sum {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredients {
+  min-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed;
+  border-radius: 50px;
+}

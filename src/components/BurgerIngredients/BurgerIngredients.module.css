@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+}
+
+.container {
+  overflow-y: auto;
+  max-height: 60vh;
+  overflow-x: hidden;
+}
+
+/* размер скроллбара */
+.container::-webkit-scrollbar {
+  height: 300px;
+  width: 8px;
+}
+
+/* полоса прокрутки полностью */
+.container::-webkit-scrollbar-track {
+  background-color: var(--bg-scroll);
+}
+
+/* ползунок */
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-color);
+}
+
+.link {
+  text-decoration: none;
+}

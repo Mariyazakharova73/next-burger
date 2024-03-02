@@ -1,0 +1,13 @@
+.containerSuccess {
+  min-width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(63.18deg, #801ab3 0%, #4c4cff 100%);
+}
+
+.containerError {
+  min-width: 200px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #E52B1A;
+}

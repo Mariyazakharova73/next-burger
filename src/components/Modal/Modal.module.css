@@ -1,0 +1,27 @@
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid red;
+  background-color: var(--bg-header);
+  width: 720px;
+  border: 1px solid rgba(76, 76, 255, 0.2);
+  box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  border-radius: 40px;
+  padding: 40px;
+  z-index: 5;
+  transition: .5;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  width: 580px;
+}
