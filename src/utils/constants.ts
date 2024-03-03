@@ -31,10 +31,14 @@ export const REGISTER_PATH = "/register";
 export const LOGIN_PATH = "/login";
 export const FORGOT_PASSWORD_PATH = "/forgot-password";
 export const RESET_PASSWORD_PATH = "/reset-password";
+
 export const PROFILE_PATH = "/profile";
 export const PROFILE_ORDERS_PATH = "/profile/orders";
 export const PROFILE_ORDER_PATH = "/profile/orders/:id";
+
 export const FEED_PATH = "/feed";
 export const FEED_ITEM_PATH = "/feed/:id";
+
 export const INGREDIENT_PATH = "/ingredients/:ingredientId";
+
 export const ERROR_PATH = "*";

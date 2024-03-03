@@ -1,3 +1,5 @@
+'use client';
+
 import { IErrors, IUser } from "./../types/types";
 import { useState, useCallback, ChangeEvent } from "react";
 
@@ -6,8 +8,11 @@ export function useFormAndValidation() {
   const [errors, setErrors] = useState<IErrors>({});
   const [isValid, setIsValid] = useState(false);
 
+  console.log('test')
+
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = evt.target;
+    console.log(name, 'name')
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: evt.target.validationMessage });
     setIsValid((evt.target as any).closest(".form").checkValidity());

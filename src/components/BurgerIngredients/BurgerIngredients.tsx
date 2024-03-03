@@ -1,13 +1,17 @@
-import React, { useEffect, useRef } from "react";
+'use client'
+
 import { Tab } from "@ya.praktikum/react-developer-burger-ui-components";
-import styles from "./BurgerIngredients.module.css";
 import cn from "classnames";
-import CardList from "../CardList/CardList";
-import { IIngredient, IOptions } from "../../types/types";
+import React, { useEffect, useMemo, useRef } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { IIngredient, IOptions } from "../../types/types";
+import CardList from "../CardList/CardList";
+import s from "./BurgerIngredients.module.css";
 
 const BurgerIngredients: React.FC = () => {
   const ingredients = useTypedSelector((state) => state.ingredients.ingredients);
+
+  console.log(ingredients, 'ingredients')
 
   const [current, setCurrent] = React.useState("Булки");
   const refForBun = useRef<HTMLHeadingElement>(null);
@@ -44,12 +48,12 @@ const BurgerIngredients: React.FC = () => {
     },
   ];
 
-  const arr = [refForBun.current, refForSause.current, refForMain.current];
+  const arr = useMemo(()=>[refForBun.current, refForSause.current, refForMain.current], []);
 
   useEffect(() => {
     let intersectionStatus: IOptions = {};
 
-    const titleObsrever = new IntersectionObserver(
+    const titleObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           intersectionStatus[entry.target.textContent!] = entry.isIntersecting;
@@ -66,7 +70,7 @@ const BurgerIngredients: React.FC = () => {
 
     arr.forEach((item) => {
       if (item !== null) {
-        titleObsrever.observe(item);
+        titleObserver.observe(item);
       }
     });
   }, [arr]);
@@ -81,7 +85,7 @@ const BurgerIngredients: React.FC = () => {
   return (
     <section className="pt-10">
       <h1 className="text text_type_main-large">Соберите бургер</h1>
-      <div className={cn("pt-5 pb-4", styles.wrapper)}>
+      <div className={cn("pt-5 pb-4", s.wrapper)}>
         {info.map((item) => {
           return (
             <Tab
@@ -97,7 +101,7 @@ const BurgerIngredients: React.FC = () => {
           );
         })}
       </div>
-      <div className={styles.container} ref={refForContainer}>
+      <div className={s.container} ref={refForContainer}>
         {info.map((item) => {
           return <CardList key={item.name} ref={item.title} arr={item.arr} title={item.name} />;
         })}

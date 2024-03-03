@@ -5,13 +5,14 @@ import { Counter, CurrencyIcon } from "@ya.praktikum/react-developer-burger-ui-c
 import cn from "classnames";
 import { useDrag } from "react-dnd";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { Link, useLocation } from "react-router-dom";
+// import { Link, useLocation } from "react-router-dom";
 import { getCard } from "../../services/actions/actions";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
+import Link from 'next/link';
 
 const Card: React.FC<ICardProps> = ({ item }) => {
   const { name, calories, proteins, fat, carbohydrates, image_large, _id } = item;
-  const location = useLocation();
+  // const location = useLocation();
   const dispatch = useAppDispatch();
   const ingredientsForBurger = useTypedSelector((state) => state.buy.ingredientsForBurger);
   const bun = useTypedSelector((state) => state.buy.bun);
@@ -50,8 +51,8 @@ const Card: React.FC<ICardProps> = ({ item }) => {
   return (
     <Link
       key={_id}
-      to={`/ingredients/${_id}`}
-      state={{ background: location }}
+      href={`/ingredients/${_id}`}
+      // state={{ background: location }}
       className={cn("", styles.link)}
     >
       <li ref={dragRef} style={{ opacity }} className={styles.item} onClick={handleClick}>

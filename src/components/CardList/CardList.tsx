@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import styles from "./CardList.module.css";
 import { ICardListProps } from "../../types/types";
 
+// @ts-ignore
 const CardList: React.FC<ICardListProps> = React.forwardRef(({ arr, title }, ref) => {
   return (
     <div className={styles.wrapper}>

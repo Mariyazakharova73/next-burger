@@ -6,7 +6,7 @@
 
 **Технологии и инструменты**
 
-`react, react-redux, redux-thunk, react-dnd, typescript, WebSocket, Jest`
+`next,react, react-redux, redux-thunk, react-dnd, typescript, WebSocket, Jest, Cypress`
 
 **Функции**
 
@@ -16,9 +16,9 @@
 **Установка, запуск приложения и тестов**
 
 - Установка `npm i`
-- Запуск тестов `npm run cypress:open` и `npm run test`
-- Запуск приложения `npm start`
+- Запуск тестов `npm run test`
+- Запуск приложения `npm run dev`
 
-**Cсылка на проект**
+<!-- **Cсылка на проект**
 
-* [Ссылка: "react-burger"](https://mariyazakharova73.github.io/react-burger/)
+* [Ссылка: "react-burger"](https://mariyazakharova73.github.io/react-burger/) -->

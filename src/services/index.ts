@@ -1,15 +1,16 @@
-import { compose, createStore, combineReducers, applyMiddleware } from "redux";
-import { selectedCardReducer } from "./reducers/selectedCardReducer";
-import { orderDetailsReducer } from "./reducers/orderDetailsReducer";
-import { ingredientsForBurgerReducer } from "./reducers/ingredientsForBurgerReducer";
-import { ingredientsReducer } from "./reducers/ingredientsReducer";
-import { userReducer } from "./reducers/userReducer";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import { wsReducer } from "./reducers/wsReducer";
 import { socketMiddleware } from "../services/middleware";
 import { TWSStoreActions, wsActionTypes } from "../types/wsTypes";
-import { selectedOrderReducer } from "./reducers/selectedOrderReducer";
 import { WS_URL } from "../utils/constants";
+import { ingredientsForBurgerReducer } from "./reducers/ingredientsForBurgerReducer";
+import { ingredientsReducer } from "./reducers/ingredientsReducer";
+import { orderDetailsReducer } from "./reducers/orderDetailsReducer";
+import { selectedCardReducer } from "./reducers/selectedCardReducer";
+import { selectedOrderReducer } from "./reducers/selectedOrderReducer";
+import { userReducer } from "./reducers/userReducer";
+import { wsReducer } from "./reducers/wsReducer";
 
 export const rootReducer = combineReducers({
   card: selectedCardReducer,
@@ -32,13 +33,25 @@ const wsActions: TWSStoreActions = {
   wsClose: wsActionTypes.WS_CLOSE
 };
 
-const composeEnhancers =
-  (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk, socketMiddleware(wsActions, WS_URL)))
-);
+// export const store = createStore(
+//   rootReducer,
+//   composeWithDevTools(
+//     applyMiddleware(thunk, socketMiddleware(wsActions, WS_URL))
+//   )
+// );
 
-// export type RootState = ReturnType<typeof rootReducer>;
-export type RootState = ReturnType<typeof store.getState>;
+export type RootState = ReturnType<typeof rootReducer>;
+// export type RootState = ReturnType<typeof store.getState>;
+
+
+export const makeStore = () => {
+  return createStore(
+    rootReducer,
+    composeWithDevTools(
+      applyMiddleware(thunk, socketMiddleware(wsActions, WS_URL))
+    )
+  );
+};
+
+export type AppStore = ReturnType<typeof makeStore>;

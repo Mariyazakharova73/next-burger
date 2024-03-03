@@ -48,20 +48,20 @@ const App: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   let background = location.state && location.state.background;
-  const ingredientsForBurger = useTypedSelector((state) => state.buy.ingredientsForBurger);
-  const bun = useTypedSelector((state) => state.buy.bun);
+  // const ingredientsForBurger = useTypedSelector((state) => state.buy.ingredientsForBurger);
+  // const bun = useTypedSelector((state) => state.buy.bun);
   const { isLoggedIn } = useTypedSelector((state) => state.user);
 
-  let arrIdWithBuns = React.useMemo<string[]>(() => {
-    const arrId = ingredientsForBurger.map((item) => {
-      return item._id;
-    });
-    if (bun) {
-      return [...arrId, bun._id, bun._id];
-    } else {
-      return arrId;
-    }
-  }, [ingredientsForBurger, bun]);
+  // let arrIdWithBuns = React.useMemo<string[]>(() => {
+  //   const arrId = ingredientsForBurger.map((item) => {
+  //     return item._id;
+  //   });
+  //   if (bun) {
+  //     return [...arrId, bun._id, bun._id];
+  //   } else {
+  //     return arrId;
+  //   }
+  // }, [ingredientsForBurger, bun]);
 
   useEffect(() => {
     dispatch(getDataIngredients());
@@ -70,31 +70,31 @@ const App: React.FC = () => {
     }
   }, [isLoggedIn]);
 
-  const handleOpenOrder = () => {
-    if (isLoggedIn) {
-      dispatch(getDataOrder(arrIdWithBuns));
-      setIsOpenOrder(true);
-    } else {
-      ErrorNotification("Необходима авторизация!");
-      navigate(LOGIN_PATH);
-    }
-  };
+  // const handleOpenOrder = () => {
+  //   if (isLoggedIn) {
+  //     dispatch(getDataOrder(arrIdWithBuns));
+  //     setIsOpenOrder(true);
+  //   } else {
+  //     ErrorNotification("Необходима авторизация!");
+  //     navigate(LOGIN_PATH);
+  //   }
+  // };
 
   const handleClose = () => {
     navigate(-1);
     dispatch(deleteCard());
   };
 
-  const handleOrderModalClose = () => {
-    setIsOpenOrder(false);
-  };
+  // const handleOrderModalClose = () => {
+  //   setIsOpenOrder(false);
+  // };
 
   return (
     <div className={styles.page}>
       <ReactNotifications />
       <AppHeader />
       <Routes location={background || location}>
-        <Route path={MAIN_PATH} element={<MainPage handleOpenOrder={handleOpenOrder} />} />
+        {/* <Route path={MAIN_PATH} element={<MainPage handleOpenOrder={handleOpenOrder} />} /> */}
         <Route
           path={REGISTER_PATH}
           element={
@@ -200,11 +200,11 @@ const App: React.FC = () => {
           />
         </Routes>
       )}
-      {isOpenOrder && (
+      {/* {isOpenOrder && (
         <Modal onClose={handleOrderModalClose}>
           <OrderDetails />
         </Modal>
-      )}
+      )} */}
     </div>
   );
 };
